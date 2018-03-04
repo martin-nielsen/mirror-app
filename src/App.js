@@ -2,26 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
-
-function TimeComponent() {
-  return (
-    <div >
-      <header>
-        <h1>{"Time: " + new Date()}</h1>
-      </header>
-    </div>
-  )
-}
-
-function WeatherComponent() {
-  return (
-    <div >
-      <h3> Looking cloudy today </h3>
-      <i className="fa fa-cloud"></i>
-      
-    </div>
-  )
-}
+import WeatherComponent from './WeatherComponent/WeatherComponent'
 
 class App extends Component {
   render() {
@@ -37,4 +18,15 @@ class App extends Component {
     );
   }
 }
+
+function TimeComponent() {
+  return (
+    <div >
+      <header>
+        <h1>{"Time: " + new Date()}</h1>
+      </header>
+    </div>
+  )
+}
+
 export default App;
