@@ -1,6 +1,6 @@
 export class Forecast {
   constructor() {
-    let forecastMoments = [];
+    this.forecastMoments = [];
   };
 
   addForecastMoment(forecastMoment) {
@@ -13,8 +13,9 @@ export class ForecastMoment {
     time,
     temp_high,
     temp_low,
-    direction,
-    strength) {
+    humidity,
+    windDirection,
+    windStrength) {
   }
 }
 
@@ -23,23 +24,31 @@ function kelvinToCelsius(kelvin) {
   return celsius;
 }
 
+function createForecast(json) {
+  let forecast = new Forecast();
+  for (var element of json) {
+    var forecastMoment = new ForecastMoment(
+      element.main.dt_txt,
+      kelvinToCelsius(element.main.temp_max),
+      kelvinToCelsius(element.main.temp_min),
+      element.main.humidity,
+      element.wind.deg,
+      element.wind.speed
+    );
+    console.log(forecastMoment);
+    forecast.addForecastMoment(forecastMoment)
+  }
+  console.log(forecast.forecastMoments[0].time)
+}
+
+
 function getCurrentWeather() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=2694762&APPID=d5522d73c5c76fd651027ccd9f7ee924", false);
   xhr.send();
   var response = JSON.parse(xhr.responseText);
   //Handle the response
-  let forecast = new Forecast();
-  for (let element of response.list) {
-    let humidity = element.main.humidity
-    let forecastMoment = new ForecastMoment(
-      element.main.dt_txt,
-      kelvinToCelsius(element.main.temp_max),
-      kelvinToCelsius(element.main.temp_min),
-      element.main.humidity
-    );
-    forecast.addForecastMoment(forecastMoment)
-  }
+  createForecast(response.list);
 }
 // exports the above method
 export default getCurrentWeather;

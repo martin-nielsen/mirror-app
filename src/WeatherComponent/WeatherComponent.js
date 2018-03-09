@@ -6,10 +6,12 @@ class WeatherComponent extends Component {
     super()
     this.handleClick = this.handleClick.bind(this)
   }
+  
   handleClick() {
     getCurrentWeather();
-    console.log('Success!')
   }
+
+
   render() {
     return (
       <div>
