@@ -1,0 +1,35 @@
+{
+    "dt": 1520683200,
+    "main": {
+        "temp": 273.66,
+        "temp_min": 272.903,
+        "temp_max": 273.66,
+        "pressure": 1006.62,
+        "sea_level": 1022.15,
+        "grnd_level": 1006.62,
+        "humidity": 70,
+        "temp_kf": 0.76
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }
+    ],
+    "clouds": {
+        "all": 48
+    },
+    "wind": {
+        "speed": 1.52,
+        "deg": 311.508
+    },
+    "snow": {
+        "3h": 0.012
+    },
+    "sys": {
+        "pod": "d"
+    },
+    "dt_txt": "2018-03-10 12:00:00"
+}

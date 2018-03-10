@@ -9,13 +9,18 @@ export class Forecast {
 }
 
 export class ForecastMoment {
-  constructor(
-    time,
+  constructor(time,
     temp_high,
     temp_low,
     humidity,
     windDirection,
     windStrength) {
+      this.time = time;
+      this.temp_high = temp_high;
+      this.temp_low = temp_low;
+      this.humidity = humidity;
+      this.windDirection = windDirection;
+      this.windStrength = windStrength;
   }
 }
 
@@ -35,10 +40,9 @@ function createForecast(json) {
       element.wind.deg,
       element.wind.speed
     );
-    console.log(forecastMoment);
     forecast.addForecastMoment(forecastMoment)
   }
-  console.log(forecast.forecastMoments[0].time)
+  return forecast;
 }
 
 
@@ -48,7 +52,7 @@ function getCurrentWeather() {
   xhr.send();
   var response = JSON.parse(xhr.responseText);
   //Handle the response
-  createForecast(response.list);
+  return createForecast(response.list);
 }
 // exports the above method
 export default getCurrentWeather;

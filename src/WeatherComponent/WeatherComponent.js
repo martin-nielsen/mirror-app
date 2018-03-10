@@ -6,11 +6,12 @@ class WeatherComponent extends Component {
     super()
     this.handleClick = this.handleClick.bind(this)
   }
-  
-  handleClick() {
-    getCurrentWeather();
-  }
 
+  handleClick() {
+    let currentForecast = getCurrentWeather();
+    console.log(currentForecast);
+    // draw(currentForecast[0]);
+  }
 
   render() {
     return (
