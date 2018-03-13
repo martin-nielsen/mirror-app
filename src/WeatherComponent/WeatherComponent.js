@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import getCurrentWeather from '../DataServices/WeatherService'
+import getCurrentWeather from '../DataServices/WeatherService';
+import './WeatherComponent.css'
 
 class WeatherComponent extends Component {
   constructor() {
@@ -16,8 +17,14 @@ class WeatherComponent extends Component {
   render() {
     return (
       <div>
-        <h3> Looking cloudy today </h3>
-        <i className="fa fa-cloud"></i>
+        <h3> Looking cloudy todays </h3>
+        <div className="icon sun-shower">
+          <div class="cloud"></div>
+          <div class="sun">
+            <div class="rays"></div>
+          </div>
+          <div class="rain"></div>
+        </div>
         <div className='button__container'>
           <button className='button' onClick={this.handleClick}>Click Me</button>
         </div>
