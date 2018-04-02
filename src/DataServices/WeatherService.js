@@ -46,7 +46,7 @@ function createForecast(json) {
 }
 
 
-function getCurrentWeather() {
+function getWeatherForecasts() {
   let xhr = new XMLHttpRequest();
   xhr.open("GET", "http://api.openweathermap.org/data/2.5/forecast?id=2694762&APPID=d5522d73c5c76fd651027ccd9f7ee924", false);
   xhr.send();
@@ -55,7 +55,7 @@ function getCurrentWeather() {
   return createForecast(response.list);
 }
 // exports the above method
-export default getCurrentWeather;
+export default getWeatherForecasts;
 
 //Latitude: 58.402128 | Longitude: 15.60235
 //api.openweathermap.org/data/2.5/weather?lat=58.402128&lon=15.60235

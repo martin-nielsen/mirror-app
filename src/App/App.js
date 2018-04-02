@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 import WeatherComponent from '../WeatherComponent/WeatherComponent'
+import TimeComponent from '../TimeComponent/TimeComponent';
 
 class App extends Component {
   render() {
@@ -10,23 +11,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to the Smart Mirror</h1>
+          <h1 className="App-title">This is the header</h1>
         </header>
-        <TimeComponent />
         <WeatherComponent />
+        <TimeComponent />
       </div>
     );
   }
-}
-
-function TimeComponent() {
-  return (
-    <div >
-      <header>
-        <h1>{"Time: " + new Date()}</h1>
-      </header>
-    </div>
-  )
 }
 
 export default App;
